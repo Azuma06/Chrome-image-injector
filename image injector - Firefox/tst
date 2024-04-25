@@ -1,0 +1,54 @@
+console.log('background.js');
+
+// Listen for messages from the popup
+chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+    if (request.toggleExtension) {
+      // Toggle the extension's functionality based on the received state
+      if (request.state) {
+        // Enable extension functionality
+        enableExtensionFunctionality();
+        console.log('eneabled');
+      } else {
+        // Disable extension functionality
+        disableExtensionFunctionality();
+        console.log('disabled');
+      }
+    }
+  });
+  
+  // Function to enable extension functionality
+  function enableExtensionFunctionality() {
+    // Add your code here to enable the extension's functionality
+    console.log('Extension enabled');
+  }
+  
+  // Function to disable extension functionality
+  function disableExtensionFunctionality() {
+    // Add your code here to disable the extension's functionality
+    console.log('Extension disabled');
+  }
+
+
+
+  //
+
+  console.log('viewfile.js');
+
+// view-file.js
+// URL of the image you want to inject
+const imageUrl = 'https://congressoemfoco.uol.com.br/wp-content/uploads/141209JFC3765_l.jpg';
+
+// Create a style element
+const style = document.createElement('style');
+style.textContent = `
+    * {
+        background-image: url('${imageUrl}');
+        background-repeat: repeat;
+        background-attachment: fixed;
+    }
+`;
+
+// Add the style element to the head of the document
+document.head.appendChild(style);
+
+//
